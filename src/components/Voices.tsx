@@ -118,7 +118,7 @@ export function Voices({ player }: { player: Player }) {
 
         <Reveal delay={80}>
           <p className="mt-8 text-center text-[0.78rem] text-white/25">
-            若提示「音频未找到」，把对应的 m4a / mp3 / wav 文件放回 <span className="font-mono">assets/audio/</span> 目录即可。
+            感谢收听！也特别欢迎+期待大家来加V！
           </p>
         </Reveal>
       </div>
