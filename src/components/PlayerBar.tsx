@@ -1,5 +1,6 @@
 import { cn } from "@/utils/cn";
 import type { useVoicePlayer } from "@/hooks/useAudio";
+import { Avatar } from "./Avatar";
 import { Equalizer, PauseIcon, PlayIcon, SkipIcon, VolumeIcon } from "./ui";
 
 type Player = ReturnType<typeof useVoicePlayer>;
@@ -53,12 +54,12 @@ export function PlayerBar({ player }: { player: Player }) {
           </div>
 
           <div className="flex items-center gap-3 sm:gap-4">
-            <span
-              className="grid h-11 w-11 shrink-0 place-items-center rounded-full font-serif text-lg text-white/95"
-              style={{ backgroundImage: `linear-gradient(145deg, ${current.from}, ${current.to})` }}
-            >
-              {current.glyph}
-            </span>
+            <Avatar
+              member={current}
+              className="h-11 w-11 shadow-[0_8px_20px_-10px_rgba(0,0,0,0.9)]"
+              glyphClass="text-lg"
+              playing={playing}
+            />
 
             <div className="min-w-0 flex-1">
               <p className="truncate font-serif text-[0.98rem] text-white/92">{current.name} 的寄语</p>

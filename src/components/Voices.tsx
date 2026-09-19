@@ -1,27 +1,30 @@
 import { members, type Member } from "@/data/members";
 import type { useVoicePlayer } from "@/hooks/useAudio";
 import { cn } from "@/utils/cn";
+import { Avatar } from "./Avatar";
 import { Reveal } from "./Reveal";
 import { Equalizer, Label, PauseIcon, PlayIcon, SectionHeading } from "./ui";
 
 type Player = ReturnType<typeof useVoicePlayer>;
 
-function Avatar({ member, active, playing }: { member: Member; active: boolean; playing: boolean }) {
+function AvatarRing({ member, active, playing }: { member: Member; active: boolean; playing: boolean }) {
   return (
-    <span className="relative grid h-14 w-14 shrink-0 place-items-center">
+    <span className="relative shrink-0">
       {active && playing && (
         <span
-          className="absolute inset-0 animate-pulse-ring rounded-full"
+          className="absolute -inset-1 animate-pulse-ring rounded-full"
           style={{ background: `radial-gradient(circle, ${member.to}66, transparent 70%)` }}
         />
       )}
-      <span
-        className="relative grid h-full w-full place-items-center rounded-full font-serif text-[1.35rem] text-white/95 shadow-[inset_0_1px_0_rgba(255,255,255,0.35)]"
-        style={{ backgroundImage: `linear-gradient(145deg, ${member.from}, ${member.to})` }}
-      >
-        {member.glyph}
-        <span className="absolute inset-0 rounded-full ring-1 ring-white/20 ring-inset" />
-      </span>
+      <Avatar
+        member={member}
+        className={cn(
+          "h-14 w-14 shadow-[0_8px_20px_-10px_rgba(0,0,0,0.9)] transition duration-300",
+          active ? "ring-2 ring-amber-glow/70" : "group-hover:scale-105"
+        )}
+        glyphClass="text-[1.35rem]"
+        playing={playing}
+      />
     </span>
   );
 }
@@ -44,7 +47,7 @@ function MemberCard({ member, player, index }: { member: Member; player: Player;
         )}
       >
         <div className="flex items-center gap-4">
-          <Avatar member={member} active={active} playing={playing} />
+          <AvatarRing member={member} active={active} playing={playing} />
 
           <div className="min-w-0 flex-1">
             <p className="truncate font-serif text-[1.05rem] text-white/92">{member.name}</p>
@@ -116,11 +119,7 @@ export function Voices({ player }: { player: Player }) {
           ))}
         </div>
 
-        <Reveal delay={80}>
-          <p className="mt-8 text-center text-[0.78rem] text-white/25">
-            感谢收听！也特别欢迎+期待大家来加V！
-          </p>
-        </Reveal>
+
       </div>
     </section>
   );

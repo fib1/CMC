@@ -44,6 +44,12 @@ const resources = [
   },
 ];
 
+const steps = [
+  { no: "01", t: "装好 AU", d: "照着 02 号教程一路点下去，十分钟搞定。" },
+  { no: "02", t: "录一段 30 秒", d: "随便聊聊你今天吃了什么，先熟悉自己的声音。" },
+  { no: "03", t: "一起听一听", d: "把成品发到群里，学长姐陪你一起复盘。" },
+];
+
 export function Guide() {
   return (
     <section id="guide" className="relative py-24 sm:py-32">
@@ -53,7 +59,7 @@ export function Guide() {
           <SectionHeading
             kicker="Starter Kit"
             title="新手指南：先把装备拿齐"
-            desc="做节目的第一步不是灵感，而是把工具装好。"
+            desc="做专题的第一步不是灵感，而是把工具装好。下面四件事，一周之内搞定就很棒了。"
             align="center"
           />
         </Reveal>
