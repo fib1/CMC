@@ -8,8 +8,10 @@ import { viteSingleFile } from "vite-plugin-singlefile";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// https://vite.dev/config/
 export default defineConfig({
+  // GitHub Pages 项目站点必须包含仓库名
+  base: "/CMC/",
+
   plugins: [react(), tailwindcss(), viteSingleFile()],
   resolve: {
     alias: {
