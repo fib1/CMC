@@ -4,7 +4,7 @@ import { SectionHeading, SoundWave } from "./ui";
 
 const STORAGE_KEY = "zjucmc-topic-wishes";
 
-const seedIdeas = ["食堂新窗口测评", "期末周自救指南", "校园声音地图", "深夜自习室实录", "杭城探店清单", "我的第一次录音"];
+const seedIdeas = ["食堂新窗口测评", "期末周自救指南", "校园声音地图", "深夜自习室实录"];
 
 type Wish = { id: string; text: string; mine: boolean };
 
