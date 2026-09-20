@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Guide } from "@/components/Guide";
 import { Hero } from "@/components/Hero";
 import { Nav } from "@/components/Nav";
+import { Pet } from "@/components/Pet";
 import { PlayerBar } from "@/components/PlayerBar";
 import { Ticker } from "@/components/Ticker";
 import { Voices } from "@/components/Voices";
@@ -43,6 +44,7 @@ export default function App() {
 
       <Footer />
       <PlayerBar player={player} />
+      <Pet />
     </div>
   );
 }
